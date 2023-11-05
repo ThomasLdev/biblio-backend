@@ -7,11 +7,10 @@ use App\Repository\BookRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Represent a book entity to be fetched by its isbn code. No real data is stored in this entity.
- */
 #[ORM\Entity(repositoryClass: BookRepository::class)]
-#[ApiResource]
+#[ApiResource(
+	description: 'A book entity to be fetched by its isbn code. No real data is stored in this entity.',
+)]
 class Book
 {
     #[ORM\Id]
