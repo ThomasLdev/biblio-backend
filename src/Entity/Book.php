@@ -30,6 +30,9 @@ class Book
     #[ORM\Column]
     private ?DateTimeImmutable $updatedAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    private ?Library $library = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,6 +82,18 @@ class Book
     public function setUpdatedAt(DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getLibrary(): ?Library
+    {
+        return $this->library;
+    }
+
+    public function setLibrary(?Library $library): static
+    {
+        $this->library = $library;
 
         return $this;
     }
